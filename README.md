@@ -9,6 +9,7 @@ Le service data a identifié deux axes d'améliorations pour l'application:
 - Proposer une amélioration fonctionnelle, estimer la charge de travail que cela prendra, développer les tests de non régression puis enfin l'amélioration fonctionnelle elle-même
 
 L'amélioration fonctionnelle peut être de plusieurs ordres. L'objectif est d'améliorer l'expérience utilisateur et de lui donner envie de réaliser un prêt auprès de votre banque. Soyez créatif mais respectez les deadlines: vous n'avez que deux semaines pour réaliser ce projet et d'autres missions pourraient s'intercaler à l'improviste. 
+Description de la base de données utilisées: http://jse.amstat.org/v19n3/decock/DataDocumentation.txt
 
 ## Rappel consignes certification E2:
 

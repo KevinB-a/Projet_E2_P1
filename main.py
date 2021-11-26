@@ -15,16 +15,22 @@ X = pd.read_csv("clean_X.csv")
 # Sidebar
 # Header of Specify Input Parameters
 st.sidebar.header('Quels sont vos critères?')
-
+    
 
 def user_input_features():
-    Age = st.sidebar.slider('Ancienneté du bien', int(X.Age.min()), int(X.Age.max()), int(X.Age.mean()))
-    LotArea = st.sidebar.slider('Surface totale', int(X.LotArea.min()), int(X.LotArea.max()), int(X.LotArea.mean()))
-    GrLivArea = st.sidebar.slider('Surface au sol', int(X.GrLivArea.min()), int(X.GrLivArea.max()), int(X.GrLivArea.mean()))
-    LotFrontage = st.sidebar.slider('Taille de la façade', int(X.LotFrontage.min()), int(X.LotFrontage.max()), int(X.LotFrontage.mean()))
-    GarageArea = st.sidebar.slider('Taille du garage', int(X.GarageArea.min()), int(X.GarageArea.max()), int(X.GarageArea.mean()))
+    # Age = st.sidebar.slider('Ancienneté du bien', int(X.Age.min()), int(X.Age.max()), int(X.Age.mean())) # age of the property
+    # LotArea = st.sidebar.slider('Surface totale', int(X.LotArea.min()), int(X.LotArea.max()), int())  # int values in feet 
+    # GrLivArea = st.sidebar.slider('Surface au sol', int(X.GrLivArea.min()), int(X.GrLivArea.max()), int(X.GrLivArea.mean())) # living area in square feet
+    # LotFrontage = st.sidebar.slider('Taille de la façade', int(X.LotFrontage.min()), int(X.LotFrontage.max()), int()
+    # GarageArea = st.sidebar.slider('Taille du garage', int(X.GarageArea.min()), int(X.GarageArea.max()), int()) # area of the garage in feet
+    Age = st.sidebar.text_input('ancienneté du bien', int(X.Age.mean()))
+    GrLivArea = st.sidebar.text_input('Surface au sol', int(X.GrLivArea.mean()))
+    LotFrontage = st.sidebar.text_input('Taille de la facade', int(X.LotFrontage.mean()))  
+    LotArea = st.sidebar.text_input('Surface totale', int(X.LotArea.mean()))
+    GarageArea = st.sidebar.text_input('Taille du garage', int(X.GarageArea.mean()))
     Fence = st.sidebar.select_slider('Présence de barrières', options=[False, True])
     Pool = st.sidebar.select_slider('Piscine souhaitée?', options=[False, True])
+
 
     data = {'Age': Age,
             'GrLivArea': GrLivArea,
@@ -36,6 +42,18 @@ def user_input_features():
             }
     features = pd.DataFrame(data, index=[0])
     return features
+
+def user_input_features_test():
+    Age = st.sidebar.text_input('ancienneté du bien', int(X.Age.mean()))
+    GrLivArea = st.sidebar.text_input('Surface au sol', int(X.GrLivArea.mean()))
+    LotFrontage = st.sidebar.text_input('Taille de la facade', int(X.LotFrontage.mean()))  
+    LotArea = st.sidebar.text_input('Surface totale', int(X.LotArea.mean()))
+    GarageArea = st.sidebar.text_input('Taille du garage', int(X.GarageArea.mean()))
+    Fence = st.sidebar.select_slider('Présence de barrières', options=[False, True], value = False)
+    Pool = st.sidebar.select_slider('Piscine souhaitée?', options=[False, True], value = False)
+    return Age, GrLivArea, LotFrontage, LotArea, GarageArea, Fence, Pool
+
+
 
 df = user_input_features()
 
